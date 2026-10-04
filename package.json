@@ -1,0 +1,8 @@
+{
+  "name": "csb-metacognition",
+  "version": "2.1.0",
+  "description": "碳硅契元认知 — CSB Metacognition（层级模型 MC0–MC3 + 记忆分层 + 时间感知 + 迎合度自检）",
+  "scripts": {},
+  "keywords": ["csb", "metacognition", "agent", "carbon-silicon-bond", "碳硅契", "元认知"],
+  "license": "MIT"
+}
