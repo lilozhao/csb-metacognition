@@ -1,5 +1,15 @@
 # Changelog
 
+## v2.1.0（2026-10-04）— 版本基建：VERSION + package.json 补齐
+
+### ✨ 新增
+- `VERSION`（2.1.0）+ `package.json`（2.1.0）：补本仓**版本基建**（此前无 package.json/VERSION）
+- 与 `SKILL.md` metadata（2.1.0）+ 本 CHANGELOG 对齐
+
+### 📝 说明
+- 本次仅补版本载体，**未改任何运行逻辑**
+
+
 ## v2.1.0（2026-09-20）— 元认知层级改名 `L0–L3` → `MC0–MC3`
 
 ### 🔤 命名变更（破坏性最小化）
