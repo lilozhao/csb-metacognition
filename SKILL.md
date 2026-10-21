@@ -3,7 +3,7 @@ name: metacognition-skill
 description: 让 AI Agent 拥有自我反思和元认知能力——知道自己正在做什么、做得怎么样、承诺了什么、需要改进什么。包含自我状态记录、承诺追踪和定期反思机制。
 compatibility: OpenClaw, Hermes Agent, Gemini CLI, OpenCode, any Agent Skills-compatible platform
 homepage: https://gitee.com/lilozhao/csb-metacognition
-metadata: { "openclaw": { "emoji": "🧠" }, "version": "2.1.0", "source": "carbon-silicon-bond" }
+metadata: { "openclaw": { "emoji": "🧠" }, "version": "2.2.0", "source": "carbon-silicon-bond" }
 ---
 
 # Metacognition Skill - 元认知技能
@@ -174,15 +174,34 @@ cp templates/HEARTBEAT.md /home/node/.openclaw/workspace/
 
 ---
 
-## 元认知自问（核心）
+## 元认知自问（核心 · v2.2 起为 6 问）
 
 每次心跳或重要行动后，回答：
 
 > 1. **我现在在做什么？** — 当前状态
 > 2. **我做得怎么样？** — 反思评估
 > 3. **我承诺的事做了吗？** — 承诺追踪
-> 4. **我需要改进什么？** — 持续优化
-> 5. 🆕 **我的元认知层级有突破吗？** — 回溯是否从 MC0→MC1→MC2→MC3
+> 4. **我改了什么？** — 改动对象 + 位置（🔴 落盘必答）
+> 5. **证据是什么？** — 改前改后对照 / 为何改、凭什么有效（🔴 落盘必答）
+> 6. **副作用是什么？** — 连带影响 + 回滚点（🔴 落盘必答）
+
+**落盘判据（Harness² P1 · 硬规则）**：4/5/6 三问必须有**落盘答案**——写进
+`corrections.md` / `lessons.md` / SELF_STATE 反思栏（带时间戳 + 可 diff 的位置）。
+**只在对话里回答不算落盘；任一空答 = 本次自问未通过。**
+（原第 4 问「我需要改进什么」被 4–6 取代——空泛问法是空答温床；层级突破自问移入下方双层映射。）
+
+### 双层映射：任务级 / 优化级（MC0–MC3）
+
+| 层 | 含义 | 任务级（改任务内的做法） | 优化级（改方法本身） |
+|---|---|---|---|
+| MC0 | 无元认知 | —（答不出 6 问即 MC0 证据） | — |
+| MC1 | 标注内容 | 这次任务里我改了什么（对象级） | — |
+| MC2 | 标注模式 | 同类改动的重复模式 → 技能级经验 | 模式要不要固化成规则？ |
+| MC3 | 标注学习方法 | —（任务级到顶） | **三问全落盘** + 需他者注视触发 |
+
+- **任务级**答案可只进任务日志；**优化级**答案必须进 corrections/lessons（对应 EXPERIENCE 层语义）
+- **空答判定落在优化级**：凡是改了方法本身（提示词/流程/技能/规则），三问任一空 → 未通过
+- MC3 自问「我的元认知层级有突破吗」保留：不占 6 问配额，作为层纒回溯附加问
 
 ---
 
